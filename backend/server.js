@@ -31,3 +31,8 @@ app.use('/api/v1/projects', require('./routes/project.routes'));
 
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+const corsOptions = {
+    origin: process.env.NODE_ENV === 'production' ? process.env.ORIGIN : '*',
+};
+app.use(cors(corsOptions));
